@@ -103,7 +103,7 @@
           "pluginVersion": "7.0.1",
           "targets": [
             {
-              "expr": "sum(time() - node_boot_time_seconds{node=~\"$hostname\"}) by (node)",
+              "expr": "sum(time() - node_boot_time_seconds{node=~\"$hostname\",job=~\"node-exporter\"}) by (node)",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -1123,7 +1123,7 @@
       "pluginVersion": "7.0.1",
       "targets": [
         {
-          "expr": "count(node_cpu_seconds_total{node=~\"$hostname\",mode='system'}) by (node)",
+          "expr": "count(node_cpu_seconds_total{node=~\"$hostname\",mode='system',job=~\"node-exporter\"}) by (node)",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -1198,7 +1198,7 @@
       "pluginVersion": "7.0.1",
       "targets": [
         {
-          "expr": "count(kube_node_status_capacity_pods{node=~\"$hostname\"}) by (node)",
+          "expr": "count(kube_node_status_capacity_pods{node=~\"$hostname\",job=~\"node-exporter\"}) by (node)",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -1257,7 +1257,7 @@
       "pluginVersion": "7.0.1",
       "targets": [
         {
-          "expr": "avg(irate(kube_pod_container_resource_limits_cpu_cores{node=~\"$hostname\"}[30m])) by (node)",
+          "expr": "avg(irate(kube_pod_container_resource_limits_cpu_cores{node=~\"$hostname\",job=~\"node-exporter\"}[30m])) by (node)",
           "format": "time_series",
           "hide": true,
           "instant": false,
@@ -1347,7 +1347,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_load1{node=~\"$hostname\"}",
+          "expr": "node_load1{node=~\"$hostname\",job=~\"node-exporter\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1472,7 +1472,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode!=\"idle\"}[1m])))by(node)",
+          "expr": "sum(avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode!=\"idle\",job=~\"node-exporter\"}[1m])))by(node)",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -1597,7 +1597,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_load1{node=~\"$hostname\"}",
+              "expr": "node_load1{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -1609,7 +1609,7 @@
               "target": ""
             },
             {
-              "expr": "node_load5{node=~\"$hostname\"}",
+              "expr": "node_load5{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -1619,7 +1619,7 @@
               "step": 20
             },
             {
-              "expr": "node_load15{node=~\"$hostname\"}",
+              "expr": "node_load15{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -1737,7 +1737,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_load1{node=~\"$hostname\"}",
+              "expr": "node_load1{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -1749,7 +1749,7 @@
               "target": ""
             },
             {
-              "expr": "node_load5{node=~\"$hostname\"}",
+              "expr": "node_load5{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -1759,7 +1759,7 @@
               "step": 20
             },
             {
-              "expr": "node_load15{node=~\"$hostname\"}",
+              "expr": "node_load15{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -1879,7 +1879,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_load1{node=~\"$hostname\"}",
+              "expr": "node_load1{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -1891,7 +1891,7 @@
               "target": ""
             },
             {
-              "expr": "node_load5{node=~\"$hostname\"}",
+              "expr": "node_load5{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -1901,7 +1901,7 @@
               "step": 20
             },
             {
-              "expr": "node_load15{node=~\"$hostname\"}",
+              "expr": "node_load15{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2021,7 +2021,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_load1{node=~\"$hostname\"}",
+              "expr": "node_load1{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2033,7 +2033,7 @@
               "target": ""
             },
             {
-              "expr": "node_load5{node=~\"$hostname\"}",
+              "expr": "node_load5{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2043,7 +2043,7 @@
               "step": 20
             },
             {
-              "expr": "node_load15{node=~\"$hostname\"}",
+              "expr": "node_load15{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2163,7 +2163,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_load1{node=~\"$hostname\"}",
+              "expr": "node_load1{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2175,7 +2175,7 @@
               "target": ""
             },
             {
-              "expr": "node_load5{node=~\"$hostname\"}",
+              "expr": "node_load5{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2185,7 +2185,7 @@
               "step": 20
             },
             {
-              "expr": "node_load15{node=~\"$hostname\"}",
+              "expr": "node_load15{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2305,7 +2305,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_load1{node=~\"$hostname\"}",
+              "expr": "node_load1{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2317,7 +2317,7 @@
               "target": ""
             },
             {
-              "expr": "node_load5{node=~\"$hostname\"}",
+              "expr": "node_load5{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2327,7 +2327,7 @@
               "step": 20
             },
             {
-              "expr": "node_load15{node=~\"$hostname\"}",
+              "expr": "node_load15{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2468,7 +2468,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode=\"system\"}[1m]))",
+          "expr": "avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode=\"system\",job=~\"node-exporter\"}[1m]))",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -2479,7 +2479,7 @@
           "step": 20
         },
         {
-          "expr": "avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode=\"user\"}[1m]))",
+          "expr": "avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode=\"user\",job=~\"node-exporter\"}[1m]))",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -2489,7 +2489,7 @@
           "step": 240
         },
         {
-          "expr": "avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode=\"iowait\"}[1m]))",
+          "expr": "avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode=\"iowait\",job=~\"node-exporter\"}[1m]))",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -2614,7 +2614,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(kube_pod_container_resource_limits_cpu_cores{node=~\"$hostname\"})",
+          "expr": "sum(kube_pod_container_resource_limits_cpu_cores{node=~\"$hostname\",job=~\"node-exporter\"})",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -2625,7 +2625,7 @@
           "step": 20
         },
         {
-          "expr": "sum(kube_pod_container_resource_requests_cpu_cores{node=~\"$hostname\"})",
+          "expr": "sum(kube_pod_container_resource_requests_cpu_cores{node=~\"$hostname\",job=~\"node-exporter\"})",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -2635,13 +2635,13 @@
           "step": 240
         },
         {
-          "expr": "sum(kube_node_status_allocatable_cpu_cores{node=~\"$hostname\"})",
+          "expr": "sum(kube_node_status_allocatable_cpu_cores{node=~\"$hostname\",job=~\"node-exporter\"})",
           "interval": "",
           "legendFormat": "Allocatable",
           "refId": "C"
         },
         {
-          "expr": "sum(avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode!=\"idle\"}[30m])))by(node)",
+          "expr": "sum(avg without(cpu) (rate(node_cpu_seconds_total{node=~\"$hostname\",mode!=\"idle\",job=~\"node-exporter\"}[30m])))by(node)",
           "interval": "",
           "legendFormat": "Used",
           "refId": "D"
@@ -2761,7 +2761,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(node_cpu_seconds_total{node=~\"$hostname.*\",mode!=\"idle\"}[1m]))by(cpu)",
+          "expr": "sum(rate(node_cpu_seconds_total{node=~\"$hostname.*\",mode!=\"idle\",job=~\"node-exporter\"}[1m]))by(cpu)",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -2895,7 +2895,7 @@
       "pluginVersion": "7.0.1",
       "targets": [
         {
-          "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\"}) by (node)",
+          "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) by (node)",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -2977,7 +2977,7 @@
       "pluginVersion": "7.0.1",
       "targets": [
         {
-          "expr": "sum(kube_node_status_capacity_memory_bytes{node=~\"$hostname\"}) by (node)",
+          "expr": "sum(kube_node_status_capacity_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) by (node)",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -3121,7 +3121,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\"}",
+          "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -3239,7 +3239,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_vmstat_pswpin{node=~\"$hostname.*\"}",
+          "expr": "node_vmstat_pswpin{node=~\"$hostname.*\",job=~\"node-exporter\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -3249,7 +3249,7 @@
           "step": 4
         },
         {
-          "expr": "node_vmstat_pswpout{node=~\"$hostname.*\"}",
+          "expr": "node_vmstat_pswpout{node=~\"$hostname.*\",job=~\"node-exporter\"}",
           "interval": "",
           "legendFormat": "{{node}}-swpout",
           "refId": "A"
@@ -3492,7 +3492,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -3502,13 +3502,13 @@
               "step": 4
             },
             {
-              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Buffer",
               "refId": "A"
             },
             {
-              "expr": "node_memory_Cached_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Cached_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Cache",
               "refId": "C"
@@ -3628,7 +3628,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -3638,13 +3638,13 @@
               "step": 4
             },
             {
-              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Buffer",
               "refId": "A"
             },
             {
-              "expr": "node_memory_Cached_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Cached_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Cache",
               "refId": "C"
@@ -3764,7 +3764,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -3774,13 +3774,13 @@
               "step": 4
             },
             {
-              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Buffer",
               "refId": "A"
             },
             {
-              "expr": "node_memory_Cached_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Cached_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Cache",
               "refId": "C"
@@ -3900,7 +3900,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -3910,13 +3910,13 @@
               "step": 4
             },
             {
-              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Buffer",
               "refId": "A"
             },
             {
-              "expr": "node_memory_Cached_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Cached_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Cache",
               "refId": "C"
@@ -4036,7 +4036,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -4046,13 +4046,13 @@
               "step": 4
             },
             {
-              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Buffers_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Buffer",
               "refId": "A"
             },
             {
-              "expr": "node_memory_Cached_bytes{node=~\"$hostname\"}",
+              "expr": "node_memory_Cached_bytes{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "Cache",
               "refId": "C"
@@ -4171,7 +4171,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -4182,7 +4182,7 @@
               "step": 20
             },
             {
-              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -4192,13 +4192,13 @@
               "step": 240
             },
             {
-              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Allocatable",
               "refId": "C"
             },
             {
-              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\"})",
+              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Used",
               "refId": "D"
@@ -4326,7 +4326,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -4337,7 +4337,7 @@
               "step": 20
             },
             {
-              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -4347,13 +4347,13 @@
               "step": 240
             },
             {
-              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Allocatable",
               "refId": "C"
             },
             {
-              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\"})",
+              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Used",
               "refId": "D"
@@ -4483,7 +4483,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -4494,7 +4494,7 @@
               "step": 20
             },
             {
-              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -4504,13 +4504,13 @@
               "step": 240
             },
             {
-              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Allocatable",
               "refId": "C"
             },
             {
-              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\"})",
+              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Used",
               "refId": "D"
@@ -4640,7 +4640,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -4651,7 +4651,7 @@
               "step": 20
             },
             {
-              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -4661,13 +4661,13 @@
               "step": 240
             },
             {
-              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Allocatable",
               "refId": "C"
             },
             {
-              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\"})",
+              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Used",
               "refId": "D"
@@ -4797,7 +4797,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -4808,7 +4808,7 @@
               "step": 20
             },
             {
-              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -4818,13 +4818,13 @@
               "step": 240
             },
             {
-              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Allocatable",
               "refId": "C"
             },
             {
-              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\"})",
+              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Used",
               "refId": "D"
@@ -4954,7 +4954,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_limits_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -4965,7 +4965,7 @@
               "step": 20
             },
             {
-              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_pod_container_resource_requests_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -4975,13 +4975,13 @@
               "step": 240
             },
             {
-              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\"})",
+              "expr": "sum(kube_node_status_allocatable_memory_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Allocatable",
               "refId": "C"
             },
             {
-              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\"})",
+              "expr": "sum(node_memory_MemTotal_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) - sum(node_memory_MemAvailable_bytes{node=~\"$hostname\",job=~\"node-exporter\"})",
               "interval": "",
               "legendFormat": "Used",
               "refId": "D"
@@ -5100,7 +5100,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\"})) * 100",
+              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"})) * 100",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -5224,7 +5224,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\"})) * 100",
+              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"})) * 100",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -5348,7 +5348,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\"})) * 100",
+              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"})) * 100",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -5472,7 +5472,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\"})) * 100",
+              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"})) * 100",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -5596,7 +5596,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\"})) * 100",
+              "expr": "(1 - (node_memory_SwapFree_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_memory_SwapTotal_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"})) * 100",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -5721,7 +5721,7 @@
       "pluginVersion": "7.0.1",
       "targets": [
         {
-          "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\"}) by (node)",
+          "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) by (node)",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -5892,7 +5892,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\"} - node_filesystem_avail_bytes{node=~\"$hostname\"}) by(node)",
+          "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_filesystem_avail_bytes{node=~\"$hostname\",job=~\"node-exporter\"}) by(node)",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -5901,7 +5901,7 @@
           "refId": "A"
         },
         {
-          "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\"})by(node)",
+          "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\",job=~\"node-exporter\"})by(node)",
           "interval": "",
           "legendFormat": "total_{{node}}",
           "refId": "B"
@@ -6024,7 +6024,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\"} - node_filesystem_avail_bytes{node=~\"$hostname\"})by(mountpoint)",
+              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_filesystem_avail_bytes{node=~\"$hostname\",job=~\"node-exporter\"})by(mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -6141,7 +6141,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\"} - node_filesystem_avail_bytes{node=~\"$hostname\"})by(mountpoint)",
+              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_filesystem_avail_bytes{node=~\"$hostname\",job=~\"node-exporter\"})by(mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -6258,7 +6258,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\"} - node_filesystem_avail_bytes{node=~\"$hostname\"})by(mountpoint)",
+              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_filesystem_avail_bytes{node=~\"$hostname\",job=~\"node-exporter\"})by(mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -6375,7 +6375,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\"} - node_filesystem_avail_bytes{node=~\"$hostname\"})by(mountpoint)",
+              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_filesystem_avail_bytes{node=~\"$hostname\",job=~\"node-exporter\"})by(mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -6492,7 +6492,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\"} - node_filesystem_avail_bytes{node=~\"$hostname\"})by(mountpoint)",
+              "expr": "sum(node_filesystem_size_bytes{node=~\"$hostname\",job=~\"node-exporter\"} - node_filesystem_avail_bytes{node=~\"$hostname\",job=~\"node-exporter\"})by(mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -6622,7 +6622,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\"} / node_filesystem_size_bytes{node=~\"$hostname.*\"}) by (node,mountpoint)",
+              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_filesystem_size_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"}) by (node,mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -6739,7 +6739,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\"} / node_filesystem_size_bytes{node=~\"$hostname.*\"}) by (node,mountpoint)",
+              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_filesystem_size_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"}) by (node,mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -6856,7 +6856,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\"} / node_filesystem_size_bytes{node=~\"$hostname.*\"}) by (node,mountpoint)",
+              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_filesystem_size_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"}) by (node,mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -6973,7 +6973,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\"} / node_filesystem_size_bytes{node=~\"$hostname.*\"}) by (node,mountpoint)",
+              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_filesystem_size_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"}) by (node,mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -7090,7 +7090,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\"} / node_filesystem_size_bytes{node=~\"$hostname.*\"}) by (node,mountpoint)",
+              "expr": "sum(1 - node_filesystem_avail_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"} / node_filesystem_size_bytes{node=~\"$hostname.*\",job=~\"node-exporter\"}) by (node,mountpoint)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -7220,7 +7220,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -7229,7 +7229,7 @@
               "refId": "A"
             },
             {
-              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "interval": "",
               "legendFormat": "Inodes_free",
               "refId": "B"
@@ -7343,7 +7343,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -7352,7 +7352,7 @@
               "refId": "A"
             },
             {
-              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "interval": "",
               "legendFormat": "Inodes_free",
               "refId": "B"
@@ -7466,7 +7466,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -7475,7 +7475,7 @@
               "refId": "A"
             },
             {
-              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "interval": "",
               "legendFormat": "Inodes_free",
               "refId": "B"
@@ -7589,7 +7589,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -7598,7 +7598,7 @@
               "refId": "A"
             },
             {
-              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "interval": "",
               "legendFormat": "Inodes_free",
               "refId": "B"
@@ -7712,7 +7712,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -7721,7 +7721,7 @@
               "refId": "A"
             },
             {
-              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\"})by(node)",
+              "expr": "avg(node_filesystem_files_free{node=~\"$hostname.*\",job=~\"node-exporter\"})by(node)",
               "interval": "",
               "legendFormat": "Inodes_free",
               "refId": "B"
@@ -7972,7 +7972,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\"}[1m])",
+              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\",job=~\"node-exporter\"}[1m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -8091,7 +8091,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\"}[1m])",
+              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\",job=~\"node-exporter\"}[1m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -8210,7 +8210,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\"}[1m])",
+              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\",job=~\"node-exporter\"}[1m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -8329,7 +8329,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\"}[1m])",
+              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\",job=~\"node-exporter\"}[1m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -8448,7 +8448,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\"}[1m])",
+              "expr": "rate(node_disk_io_time_seconds_total{node=~\"$hostname.*\",job=~\"node-exporter\"}[1m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -8566,7 +8566,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg(irate(node_disk_read_time_seconds_total{node=~\"$hostname\"}[1m]))by (node) / avg(irate(node_disk_reads_completed_total{node=~\"$hostname\"}[1m]))by(node)",
+          "expr": "avg(irate(node_disk_read_time_seconds_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m]))by (node) / avg(irate(node_disk_reads_completed_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m]))by(node)",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -8576,7 +8576,7 @@
           "refId": "B"
         },
         {
-          "expr": "avg(irate(node_disk_write_time_seconds_total{node=~\"$hostname\"}[1m]))by(node) / avg(irate(node_disk_writes_completed_total{node=~\"$hostname\"}[1m]))by(node)",
+          "expr": "avg(irate(node_disk_write_time_seconds_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m]))by(node) / avg(irate(node_disk_writes_completed_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m]))by(node)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{node}}-write",
@@ -8687,7 +8687,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(node_disk_read_bytes_total{node=~\"$hostname\"}[1m])",
+          "expr": "irate(node_disk_read_bytes_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -8696,7 +8696,7 @@
           "step": 10
         },
         {
-          "expr": "irate(node_disk_written_bytes_total{node=~\"$hostname\"}[1m])",
+          "expr": "irate(node_disk_written_bytes_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -8811,7 +8811,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(node_disk_reads_completed_total{node=~\"$hostname\"}[1m])",
+          "expr": "irate(node_disk_reads_completed_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -8821,7 +8821,7 @@
           "step": 10
         },
         {
-          "expr": "irate(node_disk_writes_completed_total{node=~\"$hostname\"}[1m])",
+          "expr": "irate(node_disk_writes_completed_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -8931,7 +8931,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg(rate(node_disk_io_time_weighted_seconds_total{node=~\"$hostname\"}[1m]))by(node)",
+          "expr": "avg(rate(node_disk_io_time_weighted_seconds_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m]))by(node)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -9064,7 +9064,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_filefd_allocated{node=~\"$hostname\"}",
+          "expr": "node_filefd_allocated{node=~\"$hostname\",job=~\"node-exporter\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -9073,14 +9073,14 @@
           "refId": "B"
         },
         {
-          "expr": "irate(node_context_switches_total{node=~\"$hostname\"}[30m])",
+          "expr": "irate(node_context_switches_total{node=~\"$hostname\",job=~\"node-exporter\"}[30m])",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "switches_{{node}}",
           "refId": "A"
         },
         {
-          "expr": "node_filefd_maximum{node=~\"$hostname\"}",
+          "expr": "node_filefd_maximum{node=~\"$hostname\",job=~\"node-exporter\"}",
           "hide": true,
           "refId": "C"
         }
@@ -9214,7 +9214,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_filefd_allocated{node=~\"$hostname\"}",
+              "expr": "node_filefd_allocated{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -9223,14 +9223,14 @@
               "refId": "B"
             },
             {
-              "expr": "irate(node_context_switches_total{node=~\"$hostname\"}[1m])",
+              "expr": "irate(node_context_switches_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "switches_{{node}}",
               "refId": "A"
             },
             {
-              "expr": "node_filefd_maximum{node=~\"$hostname\"}",
+              "expr": "node_filefd_maximum{node=~\"$hostname\",job=~\"node-exporter\"}",
               "hide": true,
               "interval": "",
               "legendFormat": "filefd_max_{{node}}",
@@ -9357,7 +9357,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_filefd_allocated{node=~\"$hostname\"}",
+              "expr": "node_filefd_allocated{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -9366,14 +9366,14 @@
               "refId": "B"
             },
             {
-              "expr": "irate(node_context_switches_total{node=~\"$hostname\"}[1m])",
+              "expr": "irate(node_context_switches_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "switches_{{node}}",
               "refId": "A"
             },
             {
-              "expr": "node_filefd_maximum{node=~\"$hostname\"}",
+              "expr": "node_filefd_maximum{node=~\"$hostname\",job=~\"node-exporter\"}",
               "hide": true,
               "interval": "",
               "legendFormat": "filefd_max_{{node}}",
@@ -9500,7 +9500,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_filefd_allocated{node=~\"$hostname\"}",
+              "expr": "node_filefd_allocated{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -9509,14 +9509,14 @@
               "refId": "B"
             },
             {
-              "expr": "irate(node_context_switches_total{node=~\"$hostname\"}[1m])",
+              "expr": "irate(node_context_switches_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "switches_{{node}}",
               "refId": "A"
             },
             {
-              "expr": "node_filefd_maximum{node=~\"$hostname\"}",
+              "expr": "node_filefd_maximum{node=~\"$hostname\",job=~\"node-exporter\"}",
               "hide": true,
               "interval": "",
               "legendFormat": "filefd_max_{{node}}",
@@ -9643,7 +9643,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_filefd_allocated{node=~\"$hostname\"}",
+              "expr": "node_filefd_allocated{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -9652,14 +9652,14 @@
               "refId": "B"
             },
             {
-              "expr": "irate(node_context_switches_total{node=~\"$hostname\"}[1m])",
+              "expr": "irate(node_context_switches_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "switches_{{node}}",
               "refId": "A"
             },
             {
-              "expr": "node_filefd_maximum{node=~\"$hostname\"}",
+              "expr": "node_filefd_maximum{node=~\"$hostname\",job=~\"node-exporter\"}",
               "hide": true,
               "interval": "",
               "legendFormat": "filefd_max_{{node}}",
@@ -9786,7 +9786,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_filefd_allocated{node=~\"$hostname\"}",
+              "expr": "node_filefd_allocated{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -9795,14 +9795,14 @@
               "refId": "B"
             },
             {
-              "expr": "irate(node_context_switches_total{node=~\"$hostname\"}[1m])",
+              "expr": "irate(node_context_switches_total{node=~\"$hostname\",job=~\"node-exporter\"}[1m])",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "switches_{{node}}",
               "refId": "A"
             },
             {
-              "expr": "node_filefd_maximum{node=~\"$hostname\"}",
+              "expr": "node_filefd_maximum{node=~\"$hostname\",job=~\"node-exporter\"}",
               "hide": true,
               "interval": "",
               "legendFormat": "filefd_max_{{node}}",
@@ -9917,7 +9917,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(node_network_receive_bytes_total{node=~\"$hostname\",device!~'tap.*|veth.*|br.*|docker.*|virbr*|lo*'}[1m])*8",
+          "expr": "irate(node_network_receive_bytes_total{node=~\"$hostname\",device!~'tap.*|veth.*|br.*|docker.*|virbr*|lo*',job=~\"node-exporter\"}[1m])*8",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -9926,7 +9926,7 @@
           "step": 4
         },
         {
-          "expr": "irate(node_network_transmit_bytes_total{node=~\"$hostname\",device!~'tap.*|veth.*|br.*|docker.*|virbr*|lo*'}[1m])*8",
+          "expr": "irate(node_network_transmit_bytes_total{node=~\"$hostname\",device!~'tap.*|veth.*|br.*|docker.*|virbr*|lo*',job=~\"node-exporter\"}[1m])*8",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -10273,7 +10273,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\"}",
+          "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\",job=~\"node-exporter\"}",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -10284,7 +10284,7 @@
           "step": 20
         },
         {
-          "expr": "node_sockstat_TCP_tw{node=~\"$hostname\"}",
+          "expr": "node_sockstat_TCP_tw{node=~\"$hostname\",job=~\"node-exporter\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -10292,17 +10292,17 @@
           "refId": "D"
         },
         {
-          "expr": "node_sockstat_sockets_used{node=~\"$hostname\"}",
+          "expr": "node_sockstat_sockets_used{node=~\"$hostname\",job=~\"node-exporter\"}",
           "legendFormat": "{{node}}_Sockets_used",
           "refId": "B"
         },
         {
-          "expr": "node_sockstat_UDP_inuse{node=~\"$hostname\"}",
+          "expr": "node_sockstat_UDP_inuse{node=~\"$hostname\",job=~\"node-exporter\"}",
           "legendFormat": "{{node}}_UDP_inuse",
           "refId": "C"
         },
         {
-          "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\"}",
+          "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\",job=~\"node-exporter\"}",
           "legendFormat": "{{node}}_TCP_alloc",
           "refId": "E"
         }
@@ -10434,7 +10434,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -10445,37 +10445,37 @@
               "step": 20
             },
             {
-              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_ActiveOpens",
               "refId": "B"
             },
             {
-              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InErrs",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -10599,7 +10599,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -10610,37 +10610,37 @@
               "step": 20
             },
             {
-              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_ActiveOpens",
               "refId": "B"
             },
             {
-              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InErrs",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -10764,7 +10764,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -10775,37 +10775,37 @@
               "step": 20
             },
             {
-              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_ActiveOpens",
               "refId": "B"
             },
             {
-              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InErrs",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -10929,7 +10929,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -10940,37 +10940,37 @@
               "step": 20
             },
             {
-              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_ActiveOpens",
               "refId": "B"
             },
             {
-              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InErrs",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -11094,7 +11094,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_CurrEstab{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -11105,37 +11105,37 @@
               "step": 20
             },
             {
-              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_ActiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_ActiveOpens",
               "refId": "B"
             },
             {
-              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InErrs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InErrs",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -11273,7 +11273,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -11284,37 +11284,37 @@
               "step": 20
             },
             {
-              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_inuse",
               "refId": "B"
             },
             {
-              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_tw",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -11438,7 +11438,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -11449,37 +11449,37 @@
               "step": 20
             },
             {
-              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_inuse",
               "refId": "B"
             },
             {
-              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_tw",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -11603,7 +11603,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -11614,37 +11614,37 @@
               "step": 20
             },
             {
-              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_inuse",
               "refId": "B"
             },
             {
-              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_tw",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -11768,7 +11768,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -11779,37 +11779,37 @@
               "step": 20
             },
             {
-              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_inuse",
               "refId": "B"
             },
             {
-              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_tw",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -11933,7 +11933,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_alloc{node=~\"$hostname\",job=~\"node-exporter\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -11944,37 +11944,37 @@
               "step": 20
             },
             {
-              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_inuse{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_inuse",
               "refId": "B"
             },
             {
-              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\"}",
+              "expr": "node_sockstat_TCP_tw{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_tw",
               "refId": "C"
             },
             {
-              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_InSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_InSegs",
               "refId": "E"
             },
             {
-              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_OutSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_OutSegs",
               "refId": "D"
             },
             {
-              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_PassiveOpens{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_PassiveOpens",
               "refId": "F"
             },
             {
-              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\"}",
+              "expr": "node_netstat_Tcp_RetransSegs{node=~\"$hostname\",job=~\"node-exporter\"}",
               "interval": "",
               "legendFormat": "{{node}}_RetransSegs",
               "refId": "G"
@@ -12073,7 +12073,7 @@
           "value": "$__all"
         },
         "datasource": "Prometheus",
-        "definition": "label_values(kube_node_info{node=~\"$hostname\"},instance)",
+        "definition": "label_values(kube_node_info{node=~\"$hostname\",job=~\"node-exporter\"},instance)",
         "hide": 0,
         "includeAll": true,
         "label": "IP",
@@ -12081,7 +12081,7 @@
         "multiFormat": "regex values",
         "name": "node",
         "options": [],
-        "query": "label_values(kube_node_info{node=~\"$hostname\"},instance)",
+        "query": "label_values(kube_node_info{node=~\"$hostname\",job=~\"node-exporter\"},instance)",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
@@ -12107,7 +12107,7 @@
         "multi": false,
         "name": "maxmount",
         "options": [],
-        "query": "query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{node=~\"$hostname\",fstype=~\"ext4|xfs\"}) by (mountpoint))))",
+        "query": "query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{node=~\"$hostname\",fstype=~\"ext4|xfs\",job=~\"node-exporter\"}) by (mountpoint))))",
         "refresh": 2,
         "regex": "/.*\\\"(.*)\\\".*/",
         "skipUrlSync": false,
